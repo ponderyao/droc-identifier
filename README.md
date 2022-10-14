@@ -1,5 +1,4 @@
-# **<div align="center"><h3>DRoc Identifier</h3></div>**
-
+# **<div align="center"><h1>DRoc Identifier</h1></div>**
 
 **<div align="center">A dynamic and configurable distributed identifier generator<br>一款动态可配置化的分布式ID生成器组件</div>**
 
