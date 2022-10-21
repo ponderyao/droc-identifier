@@ -81,7 +81,10 @@ public class SnowflakeProperties {
      * 自动注册机器号方式，默认为 redis
      */
     private String autoRegisterWorkerWay = SnowflakeConstant.DEFAULT.AUTO_REGISTER_WORKER_WAY;
-    
+    /**
+     * 自动注册的键后缀，默认为 DEFAULT_KEY
+     */
+    private String autoRegisterKeySuffix = SnowflakeConstant.DEFAULT.AUTO_REGISTER_KEY_SUFFIX;
     /**
      * 自定义机房号，默认为 1
      * 当且仅当enableDataCenter和enableAutoRegisterDataCenter同时为true时配置有效
@@ -217,6 +220,14 @@ public class SnowflakeProperties {
 
     public void setAutoRegisterWorkerWay(String autoRegisterWorkerWay) {
         this.autoRegisterWorkerWay = autoRegisterWorkerWay;
+    }
+
+    public String getAutoRegisterKeySuffix() {
+        return autoRegisterKeySuffix;
+    }
+
+    public void setAutoRegisterKeySuffix(String autoRegisterKeySuffix) {
+        this.autoRegisterKeySuffix = autoRegisterKeySuffix;
     }
 
     public long getDataCenterId() {

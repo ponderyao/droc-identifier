@@ -10,6 +10,6 @@ import io.github.ponderyao.droc.strategy.Strategy;
  */
 public interface AutoRegisterStrategy extends Strategy {
     
-    long execute(String key);
+    long execute(String key, long superiorLimit);
     
 }

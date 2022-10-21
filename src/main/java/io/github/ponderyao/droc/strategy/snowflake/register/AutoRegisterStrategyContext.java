@@ -19,13 +19,13 @@ public class AutoRegisterStrategyContext implements StrategyContext {
         STRATEGIES.add(new RedisAutoRegisterStrategy());
     }
     
-    public long register(String type, String key) {
+    public long register(String type, String key, long superiorLimit) {
         for (AutoRegisterStrategy strategy : STRATEGIES) {
             if (strategy.match(type)) {
-                return strategy.execute(key);
+                return strategy.execute(key, superiorLimit);
             }
         }
-        return STRATEGIES.get(0).execute(key);
+        return STRATEGIES.get(0).execute(key, superiorLimit);
     }
     
 }

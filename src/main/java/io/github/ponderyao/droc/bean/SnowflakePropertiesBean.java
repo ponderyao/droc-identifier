@@ -35,6 +35,7 @@ public class SnowflakePropertiesBean {
     private boolean enableAutoRegisterWorker;
     private String autoRegisterDataCenterWay;
     private String autoRegisterWorkerWay;
+    private String autoRegisterKeySuffix;
     private long dataCenterId;
     private long workerId;
     private boolean handleRewindClock;
@@ -118,8 +119,9 @@ public class SnowflakePropertiesBean {
 
     private void autoRegisterDataCenter() {
         if (this.isEnableDataCenter() && this.isEnableAutoRegisterDataCenter()) {
-            AutoRegisterStrategyContext autoRegisterStrategyManager = new AutoRegisterStrategyContext();
-            long dataCenterId = autoRegisterStrategyManager.register(this.getAutoRegisterDataCenterWay(), DRocConstant.SNOWFLAKE_REGISTER_KEY.DATA_CENTER);
+            AutoRegisterStrategyContext autoRegisterStrategyContext = new AutoRegisterStrategyContext();
+            long dataCenterId = autoRegisterStrategyContext.register(this.getAutoRegisterDataCenterWay(), 
+                    DRocConstant.SNOWFLAKE_REGISTER_KEY.DATA_CENTER + autoRegisterKeySuffix, dataCenterIdMask);
             log.info("Register data-center successfully, data-center-id is {}", dataCenterId);
             this.setDataCenterId(dataCenterId);
         }
@@ -127,8 +129,9 @@ public class SnowflakePropertiesBean {
 
     private void autoRegisterWorker() {
         if (this.isEnableAutoRegisterWorker()) {
-            AutoRegisterStrategyContext autoRegisterStrategyManager = new AutoRegisterStrategyContext();
-            long workerId = autoRegisterStrategyManager.register(this.getAutoRegisterWorkerWay(), DRocConstant.SNOWFLAKE_REGISTER_KEY.WORKER);
+            AutoRegisterStrategyContext autoRegisterStrategyContext = new AutoRegisterStrategyContext();
+            long workerId = autoRegisterStrategyContext.register(this.getAutoRegisterWorkerWay(), 
+                    DRocConstant.SNOWFLAKE_REGISTER_KEY.WORKER + autoRegisterKeySuffix, workerIdMask);
             log.info("Register worker successfully, worker-id is {}", dataCenterId);
             this.setWorkerId(workerId);
         }

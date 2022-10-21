@@ -20,6 +20,7 @@ public class SnowflakeConstant {
         public static final boolean ENABLE_AUTO_REGISTER_WORKER = true;
         public static final String AUTO_REGISTER_DATA_CENTER_WAY = DRocConstant.SNOWFLAKE_REGISTER_WAY.REDIS;
         public static final String AUTO_REGISTER_WORKER_WAY = DRocConstant.SNOWFLAKE_REGISTER_WAY.REDIS;
+        public static final String AUTO_REGISTER_KEY_SUFFIX = "DEFAULT_KEY";
         public static final long DATA_CENTER_ID = 1L;
         public static final long WORKER_ID = 1L;
         public static final boolean HANDLE_REWIND_CLOCK = false;
@@ -39,6 +40,7 @@ public class SnowflakeConstant {
         public static final boolean ENABLE_AUTO_REGISTER_WORKER = true;
         public static final String AUTO_REGISTER_DATA_CENTER_WAY = DRocConstant.SNOWFLAKE_REGISTER_WAY.REDIS;
         public static final String AUTO_REGISTER_WORKER_WAY = DRocConstant.SNOWFLAKE_REGISTER_WAY.REDIS;
+        public static final String AUTO_REGISTER_KEY_SUFFIX = "NATIVE_KEY";
         public static final long DATA_CENTER_ID = 1L;
         public static final long WORKER_ID = 1L;
         public static final boolean HANDLE_REWIND_CLOCK = false;
