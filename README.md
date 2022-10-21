@@ -29,7 +29,7 @@ DRoc-Identifier 是一款动态可配置化的分布式ID生成器组件，支�
 <dependence>
     <groupId>io.github.ponderyao</groupId>
     <artifactId>droc-identifier</artifactId>
-    <version>1.1.0</version>
+    <version>1.0.0</version>
 </dependence>
 ```
 ### 雪花算法分布式ID生成器
