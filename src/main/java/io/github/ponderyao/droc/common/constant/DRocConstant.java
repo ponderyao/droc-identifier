@@ -8,6 +8,8 @@ package io.github.ponderyao.droc.common.constant;
  */
 public class DRocConstant {
     
+    public static final String DROC_SIGN = "DROC";
+    
     public static class SNOWFLAKE_TYPE {
         public static final String DEFAULT = "default";
         public static final String NATIVE = "native";

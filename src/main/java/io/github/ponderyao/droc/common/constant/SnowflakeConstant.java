@@ -1,7 +1,7 @@
 package io.github.ponderyao.droc.common.constant;
 
 /**
- * SnowflakeConstant：
+ * SnowflakeConstant：雪花算法常量定义
  *
  * @author PonderYao
  * @since 1.0.0

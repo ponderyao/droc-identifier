@@ -5,7 +5,7 @@ import io.github.ponderyao.droc.config.snowflake.SnowflakeProperties;
 import io.github.ponderyao.droc.strategy.Strategy;
 
 /**
- * SnowflakeStrategy：
+ * SnowflakeStrategy：雪花算法策略接口
  *
  * @author PonderYao
  * @since 1.0.0

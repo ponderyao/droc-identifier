@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * DRocIdentifierAutoConfiguration：
+ * DRocIdentifierAutoConfiguration：DRoc分布式 ID自动装配配置类
  *
  * @author PonderYao
  * @since 1.0.0

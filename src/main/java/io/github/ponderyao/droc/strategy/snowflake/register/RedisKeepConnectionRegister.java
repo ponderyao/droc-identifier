@@ -3,18 +3,18 @@ package io.github.ponderyao.droc.strategy.snowflake.register;
 import io.github.ponderyao.droc.util.RedisUtils;
 
 /**
- * RedisHeartBeatConnectionRegister：Redis 心跳连接注册器
+ * RedisKeepConnectionRegister：Redis心跳连接注册器
  *
  * @author PonderYao
  * @since 1.0.0
  */
-public class RedisHeartBeatConnectionRegister extends Thread {
+public class RedisKeepConnectionRegister extends Thread {
     
     private final String key;
     private final String value;
     private final long expiration;
     
-    public RedisHeartBeatConnectionRegister(String key, String value, long expiration) {
+    public RedisKeepConnectionRegister(String key, String value, long expiration) {
         this.key = key;
         this.value = value;
         this.expiration = expiration;

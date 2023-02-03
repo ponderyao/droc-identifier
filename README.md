@@ -1,4 +1,4 @@
-# <div align="center">![Alt text](https://github.com/ponderyao/onlineImage/raw/main/readme-title/droc-identifier-title.png)</div>
+# <div align="center">![DRoc Identifier](https://github.com/ponderyao/onlineImage/raw/main/readme-title/droc-identifier-title.png)</div>
 
 **<div align="center">A dynamic and configurable distributed identifier generator<br>一款动态可配置化的分布式ID生成器组件</div>**
 
@@ -34,7 +34,7 @@ DRoc-Identifier 是一款动态可配置化的分布式ID生成器组件，支�
 ```
 ### 雪花算法分布式ID生成器
 #### 默认生成策略
-无需配置，默认配置即默认生成策略
+`无需配置，默认配置即默认生成策略`
 #### 原生生成策略
 ```yaml
 ponder:

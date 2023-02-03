@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * AutoRegisterStrategyManager：雪花算法-自动注册策略管理器
+ * AutoRegisterStrategyManager：雪花算法-机房号/机器号-自动注册策略上下文
  *
  * @author PonderYao
  * @since 1.0.0

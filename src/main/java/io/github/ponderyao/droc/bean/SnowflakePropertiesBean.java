@@ -2,7 +2,6 @@ package io.github.ponderyao.droc.bean;
 
 import io.github.ponderyao.droc.common.constant.DRocConstant;
 import io.github.ponderyao.droc.config.snowflake.SnowflakeProperties;
-import io.github.ponderyao.droc.strategy.snowflake.DefaultSnowflakeStrategy;
 import io.github.ponderyao.droc.strategy.snowflake.register.AutoRegisterStrategyContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +18,7 @@ import java.text.SimpleDateFormat;
  */
 public class SnowflakePropertiesBean {
 
-    public static final Logger log = LoggerFactory.getLogger(DefaultSnowflakeStrategy.class);
+    public static final Logger log = LoggerFactory.getLogger(SnowflakePropertiesBean.class);
 
     /**
      * from snowflake-properties
@@ -132,7 +131,7 @@ public class SnowflakePropertiesBean {
             AutoRegisterStrategyContext autoRegisterStrategyContext = new AutoRegisterStrategyContext();
             long workerId = autoRegisterStrategyContext.register(this.getAutoRegisterWorkerWay(), 
                     DRocConstant.SNOWFLAKE_REGISTER_KEY.WORKER + autoRegisterKeySuffix, workerIdMask);
-            log.info("Register worker successfully, worker-id is {}", dataCenterId);
+            log.info("Register worker successfully, worker-id is {}", workerId);
             this.setWorkerId(workerId);
         }
     }
@@ -223,6 +222,14 @@ public class SnowflakePropertiesBean {
 
     public void setAutoRegisterWorkerWay(String autoRegisterWorkerWay) {
         this.autoRegisterWorkerWay = autoRegisterWorkerWay;
+    }
+
+    public String getAutoRegisterKeySuffix() {
+        return autoRegisterKeySuffix;
+    }
+
+    public void setAutoRegisterKeySuffix(String autoRegisterKeySuffix) {
+        this.autoRegisterKeySuffix = autoRegisterKeySuffix;
     }
 
     public long getDataCenterId() {

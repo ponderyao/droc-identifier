@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 /**
- * DRocProperties：DRoc分布式 ID 属性配置
+ * DRocProperties：DRoc分布式ID属性配置
  *
  * @author PonderYao
  * @since 1.0.0

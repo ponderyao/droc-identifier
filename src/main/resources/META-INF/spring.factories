@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-io.github.ponderyao.droc.config.DRocIdentifierAutoConfiguration
+  io.github.ponderyao.droc.config.DRocIdentifierAutoConfiguration

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * SnowflakeStrategyContext：雪花算法策略管理器
+ * SnowflakeStrategyContext：雪花算法策略上下文
  *
  * @author PonderYao
  * @since 1.0.0

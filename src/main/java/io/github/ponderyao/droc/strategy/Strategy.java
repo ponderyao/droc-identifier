@@ -1,7 +1,7 @@
 package io.github.ponderyao.droc.strategy;
 
 /**
- * Strategy：
+ * Strategy：策略接口
  *
  * @author PonderYao
  * @since 1.0.0

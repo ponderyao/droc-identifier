@@ -3,7 +3,7 @@ package io.github.ponderyao.droc.core;
 import io.github.ponderyao.droc.util.DRocUtils;
 
 /**
- * DRocId：
+ * DRocId：DRoc分布式ID
  *
  * @author PonderYao
  * @since 1.0.0
