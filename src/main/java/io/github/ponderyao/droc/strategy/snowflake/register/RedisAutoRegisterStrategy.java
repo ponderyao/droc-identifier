@@ -66,8 +66,7 @@ public class RedisAutoRegisterStrategy implements AutoRegisterStrategy {
     }
     
     private void occupy(String key) {
-        Thread thread = new RedisKeepConnectionRegister(key, REGISTER_OCCUPY_SIGN, REGISTER_EXPIRATION);
+        Thread thread = new RedisAutoRegisterThread(key, REGISTER_OCCUPY_SIGN, REGISTER_EXPIRATION);
         thread.start();
     }
-    
 }

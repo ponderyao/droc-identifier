@@ -1,5 +1,6 @@
 package io.github.ponderyao.droc.bean;
 
+import io.github.ponderyao.droc.common.constant.CommonConstant;
 import io.github.ponderyao.droc.common.constant.DRocConstant;
 import io.github.ponderyao.droc.config.snowflake.SnowflakeProperties;
 import io.github.ponderyao.droc.strategy.snowflake.register.AutoRegisterStrategyContext;
@@ -129,8 +130,10 @@ public class SnowflakePropertiesBean {
     private void autoRegisterWorker() {
         if (this.isEnableAutoRegisterWorker()) {
             AutoRegisterStrategyContext autoRegisterStrategyContext = new AutoRegisterStrategyContext();
+            String dataCenterIdStr = this.isEnableDataCenter() ?
+                    DRocConstant.SNOWFLAKE_REGISTER_KEY.DATA_CENTER + dataCenterId + CommonConstant.UNDERLINE : "";
             long workerId = autoRegisterStrategyContext.register(this.getAutoRegisterWorkerWay(), 
-                    DRocConstant.SNOWFLAKE_REGISTER_KEY.WORKER + autoRegisterKeySuffix, workerIdMask);
+                    dataCenterIdStr + DRocConstant.SNOWFLAKE_REGISTER_KEY.WORKER + autoRegisterKeySuffix, workerIdMask);
             log.info("Register worker successfully, worker-id is {}", workerId);
             this.setWorkerId(workerId);
         }

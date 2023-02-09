@@ -2,6 +2,7 @@ package io.github.ponderyao.droc.core;
 
 import io.github.ponderyao.droc.bean.SnowflakePropertiesBean;
 import io.github.ponderyao.droc.common.constant.CommonConstant;
+import io.github.ponderyao.droc.common.constant.DRocConstant;
 import io.github.ponderyao.droc.exception.snowflake.SystemClockRewindException;
 import io.github.ponderyao.droc.util.ReflectionUtils;
 import io.github.ponderyao.droc.util.SpringBeanUtils;
@@ -26,11 +27,18 @@ import java.util.Map;
  */
 public class SnowflakeDRocIdGenerator implements DRocIdGenerator {
     
+    public static final String DROC_STRATEGY = DRocConstant.DROC_STRATEGY.SNOWFLAKE;
+    
     private final SnowflakePropertiesBean propertiesBean;
     
     public SnowflakeDRocIdGenerator(SnowflakePropertiesBean snowflakePropertiesBean) {
         this.propertiesBean = snowflakePropertiesBean;
         SnowflakeIdentifierCreator.getInstance();
+    }
+    
+    @Override
+    public String getStrategyName() {
+        return DROC_STRATEGY;
     }
     
     @Override

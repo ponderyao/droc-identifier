@@ -1,7 +1,5 @@
 package io.github.ponderyao.droc.core;
 
-import io.github.ponderyao.droc.util.DRocUtils;
-
 /**
  * DRocId：DRoc分布式ID
  *
@@ -26,6 +24,10 @@ public abstract class DRocId {
     
     public boolean validateValue() {
         return DRocUtils.checkDRocId(value);
+    }
+    
+    public String getStrategy() {
+        return DRocUtils.getDRocStrategy();
     }
     
 }

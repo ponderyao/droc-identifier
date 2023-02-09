@@ -1,7 +1,7 @@
 package io.github.ponderyao.droc.common.constant;
 
 /**
- * DRocConstant：
+ * DRocConstant：DRoc常量
  *
  * @author PonderYao
  * @since 1.0.0
@@ -9,6 +9,13 @@ package io.github.ponderyao.droc.common.constant;
 public class DRocConstant {
     
     public static final String DROC_SIGN = "DROC";
+    
+    public static class DROC_STRATEGY {
+        public static final String SNOWFLAKE = "droc-snowflake";
+        public static final String CACHE = "droc-cache";
+        public static final String SEGMENT = "droc-segment";
+        private DROC_STRATEGY() {}
+    }
     
     public static class SNOWFLAKE_TYPE {
         public static final String DEFAULT = "default";
