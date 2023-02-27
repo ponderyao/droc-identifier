@@ -60,23 +60,6 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-redis</artifactId>
-      <!-- 排除lettuce连接池 -->
-      <exclusions>
-        <exclusion>
-          <groupId>redis.clients</groupId>
-          <artifactId>jedis</artifactId>
-        </exclusion>
-        <exclusion>
-          <artifactId>lettuce-core</artifactId>
-          <groupId>io.lettuce</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <!-- 使用jedis连接池 -->
-    <dependency>
-      <groupId>redis.clients</groupId>
-      <artifactId>jedis</artifactId>
-      <version>${jedis.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
