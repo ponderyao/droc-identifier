@@ -7,7 +7,12 @@ package io.github.ponderyao.droc.core;
  * @since 1.0.0
  */
 public class CacheDRocIdGenerator implements DRocIdGenerator {
-    
+
+    @Override
+    public String getStrategyName() {
+        return null;
+    }
+
     @Override
     public Long generateDRocId() {
         return null;
