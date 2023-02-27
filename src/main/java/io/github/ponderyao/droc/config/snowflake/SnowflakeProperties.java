@@ -3,7 +3,6 @@ package io.github.ponderyao.droc.config.snowflake;
 import io.github.ponderyao.droc.common.constant.DRocConstant;
 import io.github.ponderyao.droc.common.constant.SnowflakeConstant;
 import io.github.ponderyao.droc.config.DRocIdentifierProperties;
-import io.github.ponderyao.droc.strategy.snowflake.DefaultSnowflakeStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,7 +26,7 @@ import java.util.Map;
  */
 public class SnowflakeProperties {
 
-    public static final Logger log = LoggerFactory.getLogger(DefaultSnowflakeStrategy.class);
+    public static final Logger log = LoggerFactory.getLogger(SnowflakeProperties.class);
     
     public static final String PREFIX = DRocIdentifierProperties.PREFIX + ".snowflake";
     
