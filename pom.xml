@@ -13,7 +13,7 @@
 
   <groupId>io.github.ponderyao</groupId>
   <artifactId>droc-identifier</artifactId>
-  <version>1.1.1</version>
+  <version>1.2.0</version>
   <packaging>jar</packaging>
   <name>DRoc identifier</name>
   <description>DRoc: A dynamically configurable distributed identifier generator</description>

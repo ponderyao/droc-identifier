@@ -12,6 +12,8 @@ public interface DRocIdGenerator {
     
     Long generateDRocId();
     
+    Long generateDRocId(String model);
+    
     boolean validateDRocId(long id);
     
 }

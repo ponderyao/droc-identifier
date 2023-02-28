@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class SnowflakeStrategyContext implements StrategyContext {
     
-    public static final List<SnowflakeStrategy> STRATEGIES = new ArrayList<>();
+    private static final List<SnowflakeStrategy> STRATEGIES = new ArrayList<>();
     
     static {
         STRATEGIES.add(new DefaultSnowflakeStrategy());

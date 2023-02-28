@@ -26,6 +26,8 @@ import java.util.Map;
  * @since 1.0.0
  */
 public class SnowflakeDRocIdGenerator implements DRocIdGenerator {
+
+    public static final Logger log = LoggerFactory.getLogger(SnowflakeDRocIdGenerator.class);
     
     public static final String DROC_STRATEGY = DRocConstant.DROC_STRATEGY.SNOWFLAKE;
     
@@ -44,6 +46,12 @@ public class SnowflakeDRocIdGenerator implements DRocIdGenerator {
     @Override
     public Long generateDRocId() {
         return SnowflakeIdentifierCreator.getInstance().nextId();
+    }
+    
+    @Override
+    public Long generateDRocId(String model) {
+        log.warn("The DRoc-Snowflake ID generator does not support model differentiation temporarily!");
+        return generateDRocId();
     }
     
     @Override

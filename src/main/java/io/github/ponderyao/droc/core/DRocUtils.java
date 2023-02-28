@@ -15,6 +15,10 @@ public class DRocUtils {
     protected static long createDRocId() {
         return dRocIdGenerator.generateDRocId();
     }
+    
+    protected static long createDRocId(String model) {
+        return dRocIdGenerator.generateDRocId(model);
+    }
 
     protected static boolean checkDRocId(long id) {
         return dRocIdGenerator.validateDRocId(id);

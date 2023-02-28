@@ -1,5 +1,7 @@
 package io.github.ponderyao.droc.util;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
@@ -50,6 +52,22 @@ public class ConstantUtils {
             return sb.toString().replaceAll("_", "");
         }
         return underlineToHump(sb.toString());
+    }
+
+    public static String humpToUnderline(String str){
+        if (StringUtils.isBlank(str)){
+            return "";
+        }
+        str = String.valueOf(str.charAt(0)).toUpperCase().concat(str.substring(1));
+        StringBuilder sb = new StringBuilder();
+        Pattern pattern = Pattern.compile("[A-Z]([a-z\\d]+)?");
+        Matcher matcher = pattern.matcher(str);
+        while (matcher.find()){
+            String word=matcher.group();
+            sb.append(word.toUpperCase());
+            sb.append(matcher.end() == str.length() ? "" : "_");
+        }
+        return sb.toString();
     }
     
 }
