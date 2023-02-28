@@ -21,9 +21,9 @@ public class CacheModelProperties {
      */
     private long offset = CacheConstant.DEFAULT_OFFSET;
     /**
-     * 缓存递增间隔，默认为 1
+     * 缓存递增步长，默认为 1
      */
-    private long interval = CacheConstant.DEFAULT_INTERVAL;
+    private long step = CacheConstant.DEFAULT_STEP;
 
     public String getName() {
         return name;
@@ -41,11 +41,11 @@ public class CacheModelProperties {
         this.offset = offset;
     }
 
-    public long getInterval() {
-        return interval;
+    public long getStep() {
+        return step;
     }
 
-    public void setInterval(long interval) {
-        this.interval = interval;
+    public void setStep(long step) {
+        this.step = step;
     }
 }

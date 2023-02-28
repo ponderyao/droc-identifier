@@ -12,10 +12,10 @@ public interface CacheDataOperator {
      * 递增
      * 
      * @param key 数据键
-     * @param interval 递增间隔
+     * @param step 递增步长
      * @return 数据值
      */
-    long increase(String key, long interval);
+    long increase(String key, long step);
 
     /**
      * 判断是否有数据

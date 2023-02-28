@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
  * ID的生成工作. <p>
  * 
  * 缓存自增ID生成器支持并推荐基于 model 模型的形式来区分不同数据表的ID生成序列，
- * 不仅可以单独定义模型的初始偏移量与递增间隔，还能避免不同模型之间使统一默认序列
+ * 不仅可以单独定义模型的初始偏移量与递增步长，还能避免不同模型之间使统一默认序列
  * 造成的数据序列混乱、序列指数爆炸增长等问题.
  *
  * @author PonderYao
@@ -40,7 +40,7 @@ public class CacheDRocIdGenerator implements DRocIdGenerator {
     @Override
     public Long generateDRocId() {
         log.warn("It is suggested to define cache model better than totally using default cache key!");
-        return nextId("", CacheConstant.DEFAULT_INTERVAL, CacheConstant.DEFAULT_OFFSET);
+        return nextId("", CacheConstant.DEFAULT_STEP, CacheConstant.DEFAULT_OFFSET);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class CacheDRocIdGenerator implements DRocIdGenerator {
         if (propertiesBean.getModels().containsKey(model)) {
             CacheModelProperties cacheModelProperties = propertiesBean.getModels().get(model);
             return nextId(ConstantUtils.humpToUnderline(model) + CommonConstant.UNDERLINE, 
-                    cacheModelProperties.getInterval(), cacheModelProperties.getOffset());
+                    cacheModelProperties.getStep(), cacheModelProperties.getOffset());
         }
         throw new CacheModelMissingException(propertiesBean.getType(), model);
     }
@@ -62,9 +62,9 @@ public class CacheDRocIdGenerator implements DRocIdGenerator {
         this.propertiesBean = cachePropertiesBean;
     }
     
-    private Long nextId(String key, long interval, long offset) {
+    private Long nextId(String key, long step, long offset) {
         CacheDataOperator cacheDataOperator = propertiesBean.getCacheDataOperator();
         String cacheKey = key + CacheConstant.CACHE_KEY;
-        return cacheDataOperator.increase(cacheKey, cacheDataOperator.containsKey(cacheKey) ? interval : offset);
+        return cacheDataOperator.increase(cacheKey, cacheDataOperator.containsKey(cacheKey) ? step : offset);
     }
 }

@@ -40,9 +40,9 @@ public class CacheStrategyContext implements StrategyContext {
             if (modelProperties.getOffset() < CacheConstant.DEFAULT_OFFSET) {
                 throw new BadCustomPropertiesException(CacheProperties.PREFIX + ".offset", CommonConstant.NOT_LESS, CacheConstant.DEFAULT_OFFSET);
             }
-            if (modelProperties.getInterval() < CacheConstant.DEFAULT_INTERVAL) {
-                throw new BadCustomPropertiesException(CacheModelProperties.PREFIX + ".interval (of " + modelProperties.getName() + ")",
-                        CommonConstant.NOT_LESS, CacheConstant.DEFAULT_INTERVAL);
+            if (modelProperties.getStep() < CacheConstant.DEFAULT_STEP) {
+                throw new BadCustomPropertiesException(CacheModelProperties.PREFIX + ".step (of " + modelProperties.getName() + ")",
+                        CommonConstant.NOT_LESS, CacheConstant.DEFAULT_STEP);
             }
         }
     }
