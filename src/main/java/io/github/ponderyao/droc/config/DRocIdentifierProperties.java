@@ -1,5 +1,6 @@
 package io.github.ponderyao.droc.config;
 
+import io.github.ponderyao.droc.config.cache.CacheProperties;
 import io.github.ponderyao.droc.config.snowflake.SnowflakeProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
@@ -23,6 +24,9 @@ public class DRocIdentifierProperties {
     @NestedConfigurationProperty
     private SnowflakeProperties snowflake = new SnowflakeProperties();
     
+    @NestedConfigurationProperty
+    private CacheProperties cache = new CacheProperties();
+    
 
     public String getTopic() {
         return topic;
@@ -38,5 +42,13 @@ public class DRocIdentifierProperties {
 
     public void setSnowflake(SnowflakeProperties snowflake) {
         this.snowflake = snowflake;
+    }
+
+    public CacheProperties getCache() {
+        return cache;
+    }
+
+    public void setCache(CacheProperties cache) {
+        this.cache = cache;
     }
 }

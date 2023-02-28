@@ -14,6 +14,10 @@ public abstract class DRocId {
         this.value = DRocUtils.createDRocId();
     }
     
+    public DRocId(String model) {
+        this.value = DRocUtils.createDRocId(model);
+    }
+    
     public DRocId(Long value) {
         this.value = value;
     }

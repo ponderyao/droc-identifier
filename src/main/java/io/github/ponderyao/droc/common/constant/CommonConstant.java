@@ -11,5 +11,9 @@ public class CommonConstant {
     public static final int MILLISECOND_SIZE = 1000;
     
     public static final String UNDERLINE = "_";
+
+    public static final String NOT_LESS = "no less";
+    
+    public static final String NOT_GREATER = "not greater";
     
 }
