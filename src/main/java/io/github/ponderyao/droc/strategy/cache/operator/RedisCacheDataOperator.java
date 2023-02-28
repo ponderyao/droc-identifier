@@ -11,8 +11,8 @@ import io.github.ponderyao.droc.util.RedisUtils;
 public class RedisCacheDataOperator implements CacheDataOperator {
     
     @Override
-    public long increase(String key, long interval) {
-        return RedisUtils.incr(key, interval);
+    public long increase(String key, long step) {
+        return RedisUtils.incr(key, step);
     }
 
     @Override
