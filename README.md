@@ -6,6 +6,8 @@
 [![standard-readme compliant](https://img.shields.io/badge/SpringBoot-2.3.12.RELEASE-brightgreen.svg?style=flat-square)](https://github.com/ponderyao/droc-identifier)
 [![standard-readme compliant](https://img.shields.io/badge/Maven-3.8.6-brightgreen.svg?style=flat-square)](https://github.com/ponderyao/droc-identifier)
 [![standard-readme compliant](https://img.shields.io/badge/Redis-4.0+-pink.svg?style=flat-square)](https://github.com/ponderyao/droc-identifier)
+[![standard-readme compliant](https://img.shields.io/badge/MySQL-5.6+-orange.svg?style=flat-square)](https://github.com/ponderyao/droc-identifier)
+[![standard-readme compliant](https://img.shields.io/badge/Caffeine-2.9.3-yellow.svg?style=flat-square)](https://github.com/ponderyao/droc-identifier)
 [![standard-readme compliant](https://img.shields.io/badge/License-Apache2.0-blue.svg?style=flat-square)</div>](https://github.com/ponderyao/droc-identifier)
 
 ## 简介
