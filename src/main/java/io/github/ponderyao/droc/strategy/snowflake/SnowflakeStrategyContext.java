@@ -1,11 +1,11 @@
 package io.github.ponderyao.droc.strategy.snowflake;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.github.ponderyao.droc.bean.SnowflakePropertiesBean;
 import io.github.ponderyao.droc.config.snowflake.SnowflakeProperties;
 import io.github.ponderyao.droc.strategy.StrategyContext;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * SnowflakeStrategyContext：雪花算法策略上下文
@@ -13,7 +13,7 @@ import java.util.List;
  * @author PonderYao
  * @since 1.0.0
  */
-public class SnowflakeStrategyContext implements StrategyContext {
+public class SnowflakeStrategyContext implements StrategyContext<SnowflakeProperties, SnowflakePropertiesBean> {
     
     private static final List<SnowflakeStrategy> STRATEGIES = new ArrayList<>();
     
@@ -23,6 +23,7 @@ public class SnowflakeStrategyContext implements StrategyContext {
         STRATEGIES.add(new DynamicSnowflakeStrategy());
     }
     
+    @Override
     public SnowflakePropertiesBean transferProperties(SnowflakeProperties properties) {
         for (SnowflakeStrategy strategy : STRATEGIES) {
             if (strategy.match(properties.getType())) {

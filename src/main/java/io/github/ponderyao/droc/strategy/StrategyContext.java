@@ -6,6 +6,8 @@ package io.github.ponderyao.droc.strategy;
  * @author PonderYao
  * @since 1.0.0
  */
-public interface StrategyContext {
+public interface StrategyContext<P, PB> {
+    
+    PB transferProperties(P properties);
     
 }

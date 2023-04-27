@@ -1,7 +1,5 @@
 package io.github.ponderyao.droc.strategy.snowflake.register;
 
-import io.github.ponderyao.droc.strategy.StrategyContext;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +9,7 @@ import java.util.List;
  * @author PonderYao
  * @since 1.0.0
  */
-public class AutoRegisterStrategyContext implements StrategyContext {
+public class AutoRegisterStrategyContext {
     
     public static final List<AutoRegisterStrategy> STRATEGIES = new ArrayList<>();
     

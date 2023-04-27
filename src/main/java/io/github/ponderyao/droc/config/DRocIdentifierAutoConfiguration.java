@@ -1,20 +1,25 @@
 package io.github.ponderyao.droc.config;
 
-import io.github.ponderyao.droc.bean.CachePropertiesBean;
-import io.github.ponderyao.droc.bean.SnowflakePropertiesBean;
-import io.github.ponderyao.droc.config.cache.CacheProperties;
-import io.github.ponderyao.droc.config.snowflake.SnowflakeProperties;
-import io.github.ponderyao.droc.core.CacheDRocIdGenerator;
-import io.github.ponderyao.droc.core.DRocIdGenerator;
-import io.github.ponderyao.droc.core.SnowflakeDRocIdGenerator;
-import io.github.ponderyao.droc.strategy.cache.CacheStrategyContext;
-import io.github.ponderyao.droc.strategy.snowflake.SnowflakeStrategyContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import io.github.ponderyao.droc.bean.CachePropertiesBean;
+import io.github.ponderyao.droc.bean.SegmentPropertiesBean;
+import io.github.ponderyao.droc.bean.SnowflakePropertiesBean;
+import io.github.ponderyao.droc.config.cache.CacheProperties;
+import io.github.ponderyao.droc.config.segment.SegmentProperties;
+import io.github.ponderyao.droc.config.snowflake.SnowflakeProperties;
+import io.github.ponderyao.droc.core.CacheDRocIdGenerator;
+import io.github.ponderyao.droc.core.DRocIdGenerator;
+import io.github.ponderyao.droc.core.SegmentDRocIdGenerator;
+import io.github.ponderyao.droc.core.SnowflakeDRocIdGenerator;
+import io.github.ponderyao.droc.strategy.cache.CacheStrategyContext;
+import io.github.ponderyao.droc.strategy.segment.SegmentStrategyContext;
+import io.github.ponderyao.droc.strategy.snowflake.SnowflakeStrategyContext;
 
 /**
  * DRocIdentifierAutoConfiguration：DRoc分布式 ID自动装配配置类
@@ -49,6 +54,14 @@ public class DRocIdentifierAutoConfiguration {
         CacheStrategyContext cacheManager = new CacheStrategyContext();
         return cacheManager.transferProperties(cacheProperties);
     }
+    
+    @Bean(name = "segmentPropertiesBean")
+    @ConditionalOnProperty(prefix = DRocIdentifierProperties.PREFIX, name = "topic", havingValue = "segment")
+    public SegmentPropertiesBean segmentPropertiesBean() {
+        SegmentProperties segmentProperties = properties.getSegment();
+        SegmentStrategyContext segmentManager = new SegmentStrategyContext();
+        return segmentManager.transferProperties(segmentProperties);
+    }
 
     /**
      * Bean: 雪花算法分布式ID生成器
@@ -63,18 +76,6 @@ public class DRocIdentifierAutoConfiguration {
     }
 
     /**
-     * Bean: 号段模式分布式ID生成器
-     *
-     * @return DRocIdGenerator
-     */
-    @Bean(name = "segmentDRocIdGenerator")
-    @ConditionalOnProperty(prefix = DRocIdentifierProperties.PREFIX, name = "topic", havingValue = "segment")
-    public DRocIdGenerator segmentDRocIdGenerator() {
-        log.info("Registering DRocId generator with database-segment-model pattern...");
-        return null;
-    }
-
-    /**
      * Bean: 缓存自增分布式ID生成器
      *
      * @return DRocIdGenerator
@@ -84,6 +85,18 @@ public class DRocIdentifierAutoConfiguration {
     public DRocIdGenerator cacheDRocIdGenerator(CachePropertiesBean cachePropertiesBean) {
         log.info("Registering DRocId generator with cache-auto-increment pattern...");
         return new CacheDRocIdGenerator(cachePropertiesBean);
+    }
+
+    /**
+     * Bean: 号段模式分布式ID生成器
+     *
+     * @return DRocIdGenerator
+     */
+    @Bean(name = "segmentDRocIdGenerator")
+    @ConditionalOnProperty(prefix = DRocIdentifierProperties.PREFIX, name = "topic", havingValue = "segment")
+    public DRocIdGenerator segmentDRocIdGenerator(SegmentPropertiesBean segmentPropertiesBean) {
+        log.info("Registering DRocId generator with database-segment-model pattern...");
+        return new SegmentDRocIdGenerator(segmentPropertiesBean);
     }
     
 }
