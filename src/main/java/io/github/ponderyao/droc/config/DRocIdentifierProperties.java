@@ -1,9 +1,11 @@
 package io.github.ponderyao.droc.config;
 
-import io.github.ponderyao.droc.config.cache.CacheProperties;
-import io.github.ponderyao.droc.config.snowflake.SnowflakeProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
+
+import io.github.ponderyao.droc.config.cache.CacheProperties;
+import io.github.ponderyao.droc.config.segment.SegmentProperties;
+import io.github.ponderyao.droc.config.snowflake.SnowflakeProperties;
 
 /**
  * DRocProperties：DRoc分布式ID属性配置
@@ -26,6 +28,9 @@ public class DRocIdentifierProperties {
     
     @NestedConfigurationProperty
     private CacheProperties cache = new CacheProperties();
+    
+    @NestedConfigurationProperty
+    private SegmentProperties segment = new SegmentProperties();
     
 
     public String getTopic() {
@@ -50,5 +55,13 @@ public class DRocIdentifierProperties {
 
     public void setCache(CacheProperties cache) {
         this.cache = cache;
+    }
+
+    public SegmentProperties getSegment() {
+        return segment;
+    }
+
+    public void setSegment(SegmentProperties segment) {
+        this.segment = segment;
     }
 }

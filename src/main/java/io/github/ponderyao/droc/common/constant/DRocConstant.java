@@ -40,4 +40,9 @@ public class DRocConstant {
         private CACHE_TYPE() {}
     }
     
+    public static class SEGMENT_SOURCE {
+        public static final String MYSQL = "mysql";
+        private SEGMENT_SOURCE() {}
+    }
+    
 }
